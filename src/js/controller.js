@@ -7,14 +7,6 @@ import recipeViews from './views/recipeViews.js';
 
 const recipeContainer = document.querySelector('.recipe');
 
-const timeout = function (s) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
-    }, s * 1000);
-  });
-};
-
 // https://forkify-api.herokuapp.com/v2
 // 295b0c62-3336-448e-bb3c-644e12c26660
 ///////////////////////////////////////
@@ -35,10 +27,3 @@ const controlRecipes = async function () {
     console.log(error);
   }
 };
-
-['haschange', 'load'].forEach(ev =>
-  window.addEventListener(ev, controlRecipes)
-);
-
-// window.addEventListener('haschange', controlRecipes);
-// window.addEventListener('load', controlRecipes);

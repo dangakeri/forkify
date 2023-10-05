@@ -14,8 +14,8 @@ if (module.hot) {
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
-    console.log(window.location.hash);
+    // console.log(id);
+    // console.log(window.location.hash);
     if (!id) return;
     recipeView.renderSpinner();
 
@@ -43,10 +43,13 @@ const controlSearchResults = async function () {
     // 3) Render results
 
     // resultsView.render(model.state.search.results);
-    resultsView.render(model.getSearchResultsPage(4));
+    resultsView.render(model.getSearchResultsPage());
 
     // 4) Render initial pagination buttons
     paginationView.render(model.state.search);
+
+    // Test
+    controlServings();
   } catch (error) {
     resultsView.renderError();
   }
@@ -59,8 +62,16 @@ const controlPagination = function (goToPage) {
   // 2).Render NEW pagination button
   paginationView.render(model.state.search);
 };
+
+const controlServings = function (newServings) {
+  // Update the recipe in serving(in state)
+  model.updateServings(newServings);
+  // Update the recipe view
+  recipeView.render(model.state.recipe);
+};
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
+  recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerRender(controlRecipes);
   paginationView.addHandlerClick(controlPagination);
 };

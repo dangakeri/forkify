@@ -8,7 +8,7 @@ class RecipeView extends View {
   _message = '';
 
   addHandlerRender(handler) {
-    ['haschange', 'load'].forEach(ev => window.addEventListener(ev, handler));
+    ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }
 
   _generateMarkup() {
@@ -98,6 +98,7 @@ class RecipeView extends View {
       </div>
   `;
   }
+
   _generateMarkupIngredient(ing) {
     return `
     <li class="recipe__ingredient">

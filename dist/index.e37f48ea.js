@@ -594,6 +594,8 @@ const controlRecipes = async function() {
         // console.log(window.location.hash);
         if (!id) return;
         (0, _recipeViewsJsDefault.default).renderSpinner();
+        // 0).Update results view to mark the selected search results
+        (0, _resultsViewJsDefault.default).update(_modelJs.getSearchResultsPage());
         // 1).Loading Recipe
         await _modelJs.loadRecipe(id);
         // 2).Rendering recipe
@@ -631,7 +633,8 @@ const controlServings = function(newServings) {
     // Update the recipe in serving(in state)
     _modelJs.updateServings(newServings);
     // Update the recipe view
-    (0, _recipeViewsJsDefault.default).render(_modelJs.state.recipe);
+    // recipeView.render(model.state.recipe);
+    (0, _recipeViewsJsDefault.default).update(_modelJs.state.recipe);
 };
 const init = function() {
     (0, _searchViewJsDefault.default).addHandlerSearch(controlSearchResults);
@@ -2645,9 +2648,10 @@ class ResultsView extends (0, _viewJsDefault.default) {
         return this._data.map(this._generateMarkupPreview).join("");
     }
     _generateMarkupPreview(result) {
+        const id = window.location.hash.slice(1);
         return `
   <li class="preview">
-      <a class="preview__link" href="#${result.id}">
+      <a class="preview__link ${result.id === id ? "preview__link--active" : ""}" href="#${result.id}">
         <figure class="preview__fig">
           <img src="${result.image}" alt="${result.title}" />
         </figure>
@@ -2675,6 +2679,21 @@ class View {
         const markup = this._generateMarkup();
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    }
+    update(data) {
+        this._data = data;
+        const newMarkup = this._generateMarkup();
+        const newDom = document.createRange().createContextualFragment(newMarkup);
+        const newElements = Array.from(newDom.querySelectorAll("*"));
+        const curElements = Array.from(this._parentElement.querySelectorAll("*"));
+        console.log(newElements);
+        newElements.forEach((newEl, i)=>{
+            const curEl = curElements[i];
+            // Updates changed text
+            if (!newEl.isEqualNode(curEl) && newEl.firstChild?.nodeValue.trim() !== "") curEl.textContent = newEl.textContent;
+            // Updates changed Attributes
+            if (!newEl.isEqualNode(curEl)) Array.from(newEl.attributes).forEach((attr)=>curEl.setAttribute(attr.name, attr.value));
+        });
     }
     _clear() {
         this._parentElement.innerHTML = "";

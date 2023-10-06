@@ -1,4 +1,4 @@
-9616
+9620
 95C:\Users\User\Desktop\forkify\node_modules\css-select\lib\esm\pseudo-selectors\aliases.d.ts.map133405256717371636 0
 91C:\Users\User\Desktop\forkify\node_modules\core-js\features\function\virtual\demethodize.js133406159119069566 0
 66C:\Users\User\Desktop\forkify\node_modules\semver\functions\cmp.js133405246667629408 0
@@ -30,7 +30,7 @@
 58C:\Users\User\Desktop\forkify\forkify-flowchart-part-1.png133363378948924519 0
 81C:\Users\User\Desktop\forkify\node_modules\core-js\features\symbol\unscopables.js133406159213511229 0
 103C:\Users\User\Desktop\forkify\node_modules\posthtml\node_modules\posthtml-parser\dist\chunk.2UQLUWPH.js133405256687066494 0
-34C:\Users\User\Desktop\forkify\dist133409677665372145 1
+34C:\Users\User\Desktop\forkify\dist133410424626538568 1
 79C:\Users\User\Desktop\forkify\node_modules\core-js\features\structured-clone.js133406159200097208 0
 51C:\Users\User\Desktop\forkify\src\sass\_upload.scss133363378951960431 0
 73C:\Users\User\Desktop\forkify\node_modules\svgo\plugins\removeUnusedNS.js133405256732187543 0
@@ -170,7 +170,7 @@
 79C:\Users\User\Desktop\forkify\node_modules\css-select\lib\esm\attributes.js.map133405256721734565 0
 74C:\Users\User\Desktop\forkify\node_modules\csso\cjs\replace\Percentage.cjs133405256719710275 0
 78C:\Users\User\Desktop\forkify\node_modules\core-js\es\array\virtual\entries.js133406159121116802 0
-50C:\Users\User\Desktop\forkify\src\js\controller.js133409677661107487 0
+50C:\Users\User\Desktop\forkify\src\js\controller.js133410421267795445 0
 97C:\Users\User\Desktop\forkify\node_modules\csso\node_modules\css-tree\lib\syntax\scope\default.js133405256752473796 0
 73C:\Users\User\Desktop\forkify\node_modules\core-js\features\symbol\for.js133406159147931562 0
 92C:\Users\User\Desktop\forkify\node_modules\csso\node_modules\css-tree\lib\syntax\node\Raw.js133405256759687072 0
@@ -201,14 +201,14 @@
 76C:\Users\User\Desktop\forkify\node_modules\@parcel\utils\test\config.test.js133405246693191218 0
 97C:\Users\User\Desktop\forkify\node_modules\core-js\internals\object-prototype-accessors-forced.js133406159179535565 0
 52C:\Users\User\Desktop\forkify\node_modules\svgo\dist133405256735701161 1
-45C:\Users\User\Desktop\forkify\src\js\model.js133409561971898502 0
+45C:\Users\User\Desktop\forkify\src\js\model.js133409794025086551 0
 94C:\Users\User\Desktop\forkify\node_modules\csso\node_modules\css-tree\lib\syntax\node\index.js133405256755971321 0
 65C:\Users\User\Desktop\forkify\node_modules\ansi-styles\index.d.ts133405246670682609 0
 60C:\Users\User\Desktop\forkify\src\js\views\paginationView.js133409671905839820 0
-57C:\Users\User\Desktop\forkify\src\js\views\recipeViews.js133409476978297883 0
+57C:\Users\User\Desktop\forkify\src\js\views\recipeViews.js133409831758431298 0
 81C:\Users\User\Desktop\forkify\node_modules\core-js\actual\object\define-getter.js133406159117268391 0
 92C:\Users\User\Desktop\forkify\node_modules\caniuse-lite\data\features\css-descendant-gtgt.js133405246767425967 0
-57C:\Users\User\Desktop\forkify\src\js\views\resultsView.js133409000500076896 0
+57C:\Users\User\Desktop\forkify\src\js\views\resultsView.js133410419734768018 0
 82C:\Users\User\Desktop\forkify\node_modules\@swc\helpers\esm\_async_to_generator.js133405256742819836 0
 95C:\Users\User\Desktop\forkify\node_modules\react-refresh\cjs\react-refresh-babel.development.js133405256688809099 0
 74C:\Users\User\Desktop\forkify\node_modules\htmlparser2\lib\Parser.d.ts.map133405256701148604 0
@@ -228,7 +228,7 @@
 65C:\Users\User\Desktop\forkify\node_modules\core-js\stable\promise133406159163386284 1
 81C:\Users\User\Desktop\forkify\node_modules\@parcel\core\test\fixtures\module-a.js133405246753039765 0
 64C:\Users\User\Desktop\forkify\node_modules\core-js\stable\object133406159215842913 1
-50C:\Users\User\Desktop\forkify\src\js\views\View.js133409480544674658 0
+50C:\Users\User\Desktop\forkify\src\js\views\View.js133410423960553987 0
 68C:\Users\User\Desktop\forkify\node_modules\core-js\es\array\index.js133406159159873513 0
 77C:\Users\User\Desktop\forkify\node_modules\type-fest\source\set-required.d.ts133405256721156533 0
 77C:\Users\User\Desktop\forkify\node_modules\htmlnano\docs\docusaurus.config.js133405256700932996 0
@@ -2858,6 +2858,7 @@
 93C:\Users\User\Desktop\forkify\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\chacha8.c133405246713153941 0
 69C:\Users\User\Desktop\forkify\node_modules\csso\lib\replace\Number.js133405256739360951 0
 76C:\Users\User\Desktop\forkify\node_modules\css-select\lib\esm\general.js.map133405256727960075 0
+52C:\Users\User\Desktop\forkify\dist\index.620a5ad5.js133410424626309098 0
 96C:\Users\User\Desktop\forkify\node_modules\csso\node_modules\css-tree\lib\syntax\config\lexer.js133405256756662565 0
 79C:\Users\User\Desktop\forkify\node_modules\core-js\stable\typed-array\values.js133406159215893261 0
 74C:\Users\User\Desktop\forkify\node_modules\css-tree\lib\generator\index.js133405256757504441 0
@@ -3887,7 +3888,7 @@
 89C:\Users\User\Desktop\forkify\node_modules\csso\node_modules\css-tree\cjs\lexer\index.cjs133405256733800401 0
 81C:\Users\User\Desktop\forkify\node_modules\core-js\features\array\virtual\flat.js133406159145554192 0
 99C:\Users\User\Desktop\forkify\node_modules\@swc\helpers\esm\_create_for_of_iterator_helper_loose.js133405256746494216 0
-57C:\Users\User\Desktop\forkify\dist\index.f7626f62.css.map133409671912741741 0
+57C:\Users\User\Desktop\forkify\dist\index.f7626f62.css.map133410421279910920 0
 89C:\Users\User\Desktop\forkify\node_modules\csso\node_modules\css-tree\cjs\lexer\Lexer.cjs133405256736602674 0
 77C:\Users\User\Desktop\forkify\node_modules\core-js\features\regexp\replace.js133406159191853826 0
 74C:\Users\User\Desktop\forkify\node_modules\caniuse-lite\data\regions\ST.js133405246804176347 0
@@ -4436,7 +4437,7 @@
 112C:\Users\User\Desktop\forkify\node_modules\css-select\node_modules\entities\lib\esm\generated\encode-html.js.map133405256725255021 0
 85C:\Users\User\Desktop\forkify\node_modules\core-js\full\array\virtual\group-to-map.js133406159155520884 0
 79C:\Users\User\Desktop\forkify\node_modules\core-js\stable\number\parse-float.js133406159181539888 0
-53C:\Users\User\Desktop\forkify\dist\index.f7626f62.css133409671912523586 0
+53C:\Users\User\Desktop\forkify\dist\index.f7626f62.css133410421279142320 0
 83C:\Users\User\Desktop\forkify\node_modules\css-select\node_modules\domutils\LICENSE133405256684841518 0
 85C:\Users\User\Desktop\forkify\node_modules\core-js\modules\esnext.reflect.metadata.js133406159134057510 0
 90C:\Users\User\Desktop\forkify\node_modules\css-select\node_modules\domutils\lib\feeds.d.ts133405256731094733 0
@@ -5891,6 +5892,7 @@
 66C:\Users\User\Desktop\forkify\node_modules\chrome-trace-event\dist133405246674222081 1
 78C:\Users\User\Desktop\forkify\node_modules\core-js\full\weak-set\delete-all.js133406159118744443 0
 82C:\Users\User\Desktop\forkify\node_modules\core-js\actual\typed-array\to-sorted.js133406159205346998 0
+52C:\Users\User\Desktop\forkify\dist\index.70c9aa48.js133410424626289037 0
 73C:\Users\User\Desktop\forkify\node_modules\core-js\full\weak-set\index.js133406159162905472 0
 64C:\Users\User\Desktop\forkify\node_modules\core-js\actual\number133406159204105788 1
 73C:\Users\User\Desktop\forkify\node_modules\core-js\actual\string\match.js133406159174734114 0
@@ -6141,6 +6143,7 @@
 86C:\Users\User\Desktop\forkify\node_modules\caniuse-lite\data\features\css-paint-api.js133405246772928111 0
 85C:\Users\User\Desktop\forkify\node_modules\@swc\helpers\esm\_sliced_to_array_loose.js133405256751073767 0
 68C:\Users\User\Desktop\forkify\node_modules\core-js\full\math\cbrt.js133406159110060159 0
+56C:\Users\User\Desktop\forkify\dist\index.70c9aa48.js.map133410424626509295 0
 68C:\Users\User\Desktop\forkify\node_modules\core-js\full\math\cosh.js133406159115391974 0
 75C:\Users\User\Desktop\forkify\node_modules\core-js\full\math\deg-per-rad.js133406159118229195 0
 77C:\Users\User\Desktop\forkify\node_modules\caniuse-lite\data\features\hevc.js133405246789673203 0
@@ -7072,6 +7075,7 @@
 73C:\Users\User\Desktop\forkify\node_modules\core-js\es\string\match-all.js133406159174366494 0
 73C:\Users\User\Desktop\forkify\node_modules\binary-extensions\package.json133405255311125885 0
 69C:\Users\User\Desktop\forkify\node_modules\core-js\es\string\match.js133406159174794082 0
+56C:\Users\User\Desktop\forkify\dist\index.620a5ad5.js.map133410424626519335 0
 73C:\Users\User\Desktop\forkify\node_modules\core-js\es\string\pad-start.js133406159181071022 0
 67C:\Users\User\Desktop\forkify\node_modules\core-js\es\string\raw.js133406159185865129 0
 70C:\Users\User\Desktop\forkify\node_modules\core-js\es\string\repeat.js133406159190118784 0
@@ -9603,15 +9607,15 @@
 56C:\Users\User\Desktop\forkify\node_modules\.bin\svgo.ps1133405256776325701 0
 70C:\Users\User\Desktop\forkify\node_modules\.bin\update-browserslist-db133405246813395901 0
 74C:\Users\User\Desktop\forkify\node_modules\.bin\update-browserslist-db.ps1133405246813387830 0
-55C:\Users\User\Desktop\forkify\dist\favicon.8b2f57bf.png133409671912533641 0
+55C:\Users\User\Desktop\forkify\dist\favicon.8b2f57bf.png133410421279037555 0
 54C:\Users\User\Desktop\forkify\dist\forkify.3464ddca.js133405396663906895 0
-53C:\Users\User\Desktop\forkify\dist\icons.21bad73c.svg133409671912501016 0
-53C:\Users\User\Desktop\forkify\dist\icons.dfd7a6db.svg133409671912533641 0
+53C:\Users\User\Desktop\forkify\dist\icons.21bad73c.svg133410421279007342 0
+53C:\Users\User\Desktop\forkify\dist\icons.dfd7a6db.svg133410421279037555 0
 56C:\Users\User\Desktop\forkify\dist\index.1ad8ecae.js.map133408759627972558 0
 56C:\Users\User\Desktop\forkify\dist\index.5c5323fb.js.map133408759627972558 0
 56C:\Users\User\Desktop\forkify\dist\index.62406edb.js.map133405397243414706 0
 53C:\Users\User\Desktop\forkify\dist\index.628a78b8.css133408759627817432 0
-52C:\Users\User\Desktop\forkify\dist\index.e37f48ea.js133409677665372145 0
-56C:\Users\User\Desktop\forkify\dist\index.e37f48ea.js.map133409677665372145 0
-45C:\Users\User\Desktop\forkify\dist\index.html133409671912523586 0
-52C:\Users\User\Desktop\forkify\dist\logo.726d37a8.png133409671912560937 0
+52C:\Users\User\Desktop\forkify\dist\index.e37f48ea.js133410423962246743 0
+56C:\Users\User\Desktop\forkify\dist\index.e37f48ea.js.map133410423962285908 0
+45C:\Users\User\Desktop\forkify\dist\index.html133410424626289037 0
+52C:\Users\User\Desktop\forkify\dist\logo.726d37a8.png133410421279103071 0

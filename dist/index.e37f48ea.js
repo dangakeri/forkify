@@ -581,6 +581,8 @@ var _searchViewJs = require("./views/searchView.js");
 var _searchViewJsDefault = parcelHelpers.interopDefault(_searchViewJs);
 var _resultsViewJs = require("./views/resultsView.js");
 var _resultsViewJsDefault = parcelHelpers.interopDefault(_resultsViewJs);
+var _bookmarksViewJs = require("./views/bookmarksView.js");
+var _bookmarksViewJsDefault = parcelHelpers.interopDefault(_bookmarksViewJs);
 var _paginationViewJs = require("./views/paginationView.js");
 var _paginationViewJsDefault = parcelHelpers.interopDefault(_paginationViewJs);
 var _runtime = require("regenerator-runtime/runtime");
@@ -596,6 +598,7 @@ const controlRecipes = async function() {
         (0, _recipeViewsJsDefault.default).renderSpinner();
         // 0).Update results view to mark the selected search results
         (0, _resultsViewJsDefault.default).update(_modelJs.getSearchResultsPage());
+        (0, _bookmarksViewJsDefault.default).update(_modelJs.state.bookmarks);
         // 1).Loading Recipe
         await _modelJs.loadRecipe(id);
         // 2).Rendering recipe
@@ -636,15 +639,25 @@ const controlServings = function(newServings) {
     // recipeView.render(model.state.recipe);
     (0, _recipeViewsJsDefault.default).update(_modelJs.state.recipe);
 };
+const controlAddBookmark = function() {
+    // 1) Add/remove bookmark
+    if (!_modelJs.state.recipe.bookmarked) _modelJs.addBookmark(_modelJs.state.recipe);
+    else _modelJs.deleteBookmark(_modelJs.state.recipe.id);
+    // 2) update recipe view
+    (0, _recipeViewsJsDefault.default).update(_modelJs.state.recipe);
+    // 3) Render bookmarks
+    (0, _bookmarksViewJsDefault.default).render(_modelJs.state.bookmarks);
+};
 const init = function() {
     (0, _searchViewJsDefault.default).addHandlerSearch(controlSearchResults);
     (0, _recipeViewsJsDefault.default).addHandlerUpdateServings(controlServings);
+    (0, _recipeViewsJsDefault.default).addHandlerAddBookmark(controlAddBookmark);
     (0, _recipeViewsJsDefault.default).addHandlerRender(controlRecipes);
     (0, _paginationViewJsDefault.default).addHandlerClick(controlPagination);
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./views/searchView.js":"9OQAM","./views/resultsView.js":"cSbZE","regenerator-runtime/runtime":"dXNgZ","./views/recipeViews.js":"fR5Tr","./views/paginationView.js":"6z7bi"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./views/searchView.js":"9OQAM","./views/resultsView.js":"cSbZE","regenerator-runtime/runtime":"dXNgZ","./views/recipeViews.js":"fR5Tr","./views/paginationView.js":"6z7bi","./views/bookmarksView.js":"4Lqzq"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -903,7 +916,7 @@ var $TypeError = TypeError;
 // `RequireObjectCoercible` abstract operation
 // https://tc39.es/ecma262/#sec-requireobjectcoercible
 module.exports = function(it) {
-    if (isNullOrUndefined(it)) throw $TypeError("Can't call method on " + it);
+    if (isNullOrUndefined(it)) throw new $TypeError("Can't call method on " + it);
     return it;
 };
 
@@ -946,7 +959,7 @@ module.exports = function(input, pref) {
         if (pref === undefined) pref = "default";
         result = call(exoticToPrim, input, pref);
         if (!isObject(result) || isSymbol(result)) return result;
-        throw $TypeError("Can't convert object to primitive value");
+        throw new $TypeError("Can't convert object to primitive value");
     }
     if (pref === undefined) pref = "number";
     return ordinaryToPrimitive(input, pref);
@@ -1087,7 +1100,7 @@ var $TypeError = TypeError;
 // `Assert: IsCallable(argument) is true`
 module.exports = function(argument) {
     if (isCallable(argument)) return argument;
-    throw $TypeError(tryToString(argument) + " is not a function");
+    throw new $TypeError(tryToString(argument) + " is not a function");
 };
 
 },{"4094667126ecac05":"l3Kyn","fce2a7573db493fa":"4O7d7"}],"4O7d7":[function(require,module,exports) {
@@ -1114,7 +1127,7 @@ module.exports = function(input, pref) {
     if (pref === "string" && isCallable(fn = input.toString) && !isObject(val = call(fn, input))) return val;
     if (isCallable(fn = input.valueOf) && !isObject(val = call(fn, input))) return val;
     if (pref !== "string" && isCallable(fn = input.toString) && !isObject(val = call(fn, input))) return val;
-    throw $TypeError("Can't convert object to primitive value");
+    throw new $TypeError("Can't convert object to primitive value");
 };
 
 },{"abe9ca006f56626e":"d7JlP","c96b3a89fec6248a":"l3Kyn","551615fda0214f1b":"Z0pBo"}],"gTwyA":[function(require,module,exports) {
@@ -1140,10 +1153,10 @@ var store = require("84eeed9891aafe14");
 (module.exports = function(key, value) {
     return store[key] || (store[key] = value !== undefined ? value : {});
 })("versions", []).push({
-    version: "3.32.2",
+    version: "3.33.0",
     mode: IS_PURE ? "pure" : "global",
     copyright: "\xa9 2014-2023 Denis Pushkarev (zloirock.ru)",
-    license: "https://github.com/zloirock/core-js/blob/v3.32.2/LICENSE",
+    license: "https://github.com/zloirock/core-js/blob/v3.33.0/LICENSE",
     source: "https://github.com/zloirock/core-js"
 });
 
@@ -1287,7 +1300,7 @@ exports.f = DESCRIPTORS ? V8_PROTOTYPE_DEFINE_BUG ? function defineProperty(O, P
     if (IE8_DOM_DEFINE) try {
         return $defineProperty(O, P, Attributes);
     } catch (error) {}
-    if ("get" in Attributes || "set" in Attributes) throw $TypeError("Accessors not supported");
+    if ("get" in Attributes || "set" in Attributes) throw new $TypeError("Accessors not supported");
     if ("value" in Attributes) O[P] = Attributes.value;
     return O;
 };
@@ -1314,7 +1327,7 @@ var $TypeError = TypeError;
 // `Assert: Type(argument) is Object`
 module.exports = function(argument) {
     if (isObject(argument)) return argument;
-    throw $TypeError($String(argument) + " is not an object");
+    throw new $TypeError($String(argument) + " is not an object");
 };
 
 },{"2b6c6258a0a6082f":"Z0pBo"}],"6XwEX":[function(require,module,exports) {
@@ -1451,7 +1464,7 @@ var enforce = function(it) {
 var getterFor = function(TYPE) {
     return function(it) {
         var state;
-        if (!isObject(it) || (state = get(it)).type !== TYPE) throw TypeError("Incompatible receiver, " + TYPE + " required");
+        if (!isObject(it) || (state = get(it)).type !== TYPE) throw new TypeError("Incompatible receiver, " + TYPE + " required");
         return state;
     };
 };
@@ -1461,7 +1474,7 @@ if (NATIVE_WEAK_MAP || shared.state) {
     store.has = store.has;
     store.set = store.set;
     /* eslint-enable no-self-assign -- prototype methods protection */ set = function(it, metadata) {
-        if (store.has(it)) throw TypeError(OBJECT_ALREADY_INITIALIZED);
+        if (store.has(it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
         metadata.facade = it;
         store.set(it, metadata);
         return metadata;
@@ -1476,7 +1489,7 @@ if (NATIVE_WEAK_MAP || shared.state) {
     var STATE = sharedKey("state");
     hiddenKeys[STATE] = true;
     set = function(it, metadata) {
-        if (hasOwn(it, STATE)) throw TypeError(OBJECT_ALREADY_INITIALIZED);
+        if (hasOwn(it, STATE)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
         metadata.facade = it;
         createNonEnumerableProperty(it, STATE, metadata);
         return metadata;
@@ -1849,7 +1862,7 @@ module.exports = uncurryThis([].slice);
 "use strict";
 var $TypeError = TypeError;
 module.exports = function(passed, required) {
-    if (passed < required) throw $TypeError("Not enough arguments");
+    if (passed < required) throw new $TypeError("Not enough arguments");
     return passed;
 };
 
@@ -1927,6 +1940,8 @@ parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe);
 parcelHelpers.export(exports, "loadSearchResults", ()=>loadSearchResults);
 parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
 parcelHelpers.export(exports, "updateServings", ()=>updateServings);
+parcelHelpers.export(exports, "addBookmark", ()=>addBookmark);
+parcelHelpers.export(exports, "deleteBookmark", ()=>deleteBookmark);
 var _regeneratorRuntime = require("regenerator-runtime");
 var _configJs = require("./config.js");
 var _helpersJs = require("./helpers.js");
@@ -1937,7 +1952,8 @@ const state = {
         results: [],
         page: 1,
         resultsPerPage: (0, _configJs.RES_PER_PAGE)
-    }
+    },
+    bookmarks: []
 };
 const loadRecipe = async function(id) {
     try {
@@ -1954,6 +1970,8 @@ const loadRecipe = async function(id) {
             cookingTime: recipe.cooking_time,
             ingredients: recipe.ingredients
         };
+        if (state.bookmarks.some((bookmark)=>bookmark.id === id)) state.recipe.bookmarked = true;
+        else state.recipe.bookmarked = false;
         console.log(state.recipe);
     // console.log(state.recipe);
     } catch (error) {
@@ -1972,6 +1990,7 @@ const loadSearchResults = async function(query) {
                 image: rec.image_url
             };
         });
+        state.search.page = 1;
     } catch (error) {
         throw error;
     }
@@ -1987,6 +2006,19 @@ const updateServings = function(newServings) {
         ing.quantity = ing.quantity * newServings / state.recipe.servings;
     });
     state.recipe.servings = newServings;
+};
+const addBookmark = function(recipe) {
+    // Add bookmark
+    state.bookmarks.push(recipe);
+    // mark current recipe as bookmarked
+    if (recipe.id === state.recipe.id) state.recipe.bookmarked = true;
+};
+const deleteBookmark = function(id) {
+    // Delete Bookmark
+    const index = state.bookmarks.findIndex((el)=>el.id === id);
+    state.bookmarks.splice(index, 1);
+    // mark current recipe as NOT bookmarked
+    if (id === state.recipe.id) state.recipe.bookmarked = false;
 };
 
 },{"regenerator-runtime":"dXNgZ","./config.js":"k5Hzs","./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
@@ -2389,7 +2421,7 @@ const updateServings = function(newServings) {
         };
     };
     function values(iterable) {
-        if (iterable || iterable === "") {
+        if (iterable) {
             var iteratorMethod = iterable[iteratorSymbol];
             if (iteratorMethod) return iteratorMethod.call(iterable);
             if (typeof iterable.next === "function") return iterable;
@@ -2407,7 +2439,10 @@ const updateServings = function(newServings) {
                 return next.next = next;
             }
         }
-        throw new TypeError(typeof iterable + " is not iterable");
+        // Return an iterator with no values.
+        return {
+            next: doneResult
+        };
     }
     exports.values = values;
     function doneResult() {
@@ -2638,30 +2673,14 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
-var _iconsSvg = require("url:../../img/icons.svg");
-var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+var _previewViewJs = require("./previewView.js");
+var _previewViewJsDefault = parcelHelpers.interopDefault(_previewViewJs);
 class ResultsView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".results");
     _errorMessage = "No recipe found for your query! Please try again later;";
     _message = "";
     _generateMarkup() {
-        return this._data.map(this._generateMarkupPreview).join("");
-    }
-    _generateMarkupPreview(result) {
-        const id = window.location.hash.slice(1);
-        return `
-  <li class="preview">
-      <a class="preview__link ${result.id === id ? "preview__link--active" : ""}" href="#${result.id}">
-        <figure class="preview__fig">
-          <img src="${result.image}" alt="${result.title}" />
-        </figure>
-        <div class="preview__data">
-          <h4 class="preview__title">${result.title}</h4>
-          <p class="preview__publisher">${result.publisher}</p>
-        </div>
-      </a>
-  </li>
-`;
+        return this._data.map((results)=>(0, _previewViewJsDefault.default).render(results, false)).join("");
     }
 }
 exports.default = new ResultsView();
@@ -2673,10 +2692,11 @@ var _iconsSvg = require("url:../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class View {
     _data;
-    render(data) {
+    render(data, render = true) {
         if (!data || Array.isArray(data) && data === 0) return this.renderError();
         this._data = data;
         const markup = this._generateMarkup();
+        if (!render) return markup;
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
@@ -2802,6 +2822,13 @@ class RecipeView extends (0, _viewJsDefault.default) {
             const { updateTo } = btn.dataset;
             console.log(updateTo);
             if (+updateTo > 0) handler(+updateTo);
+        });
+    }
+    addHandlerAddBookmark(handler) {
+        this._parentElement.addEventListener("click", function(e) {
+            const btn = e.target.closest(".btn--bookmark");
+            if (!btn) return;
+            handler();
         });
     }
     _generateMarkup() {
@@ -3209,6 +3236,52 @@ class PaginationView extends (0, _viewJsDefault.default) {
 }
 exports.default = new PaginationView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire3a11")
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}],"4Lqzq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _previewViewJs = require("./previewView.js");
+var _previewViewJsDefault = parcelHelpers.interopDefault(_previewViewJs);
+class BookmarksView extends (0, _viewJsDefault.default) {
+    _parentElement = document.querySelector(".bookmarks__list");
+    _errorMessage = "No bookmarks yet. Find a nice recipe and bookmark it :)";
+    _message = "";
+    _generateMarkup() {
+        return this._data.map((bookmark)=>(0, _previewViewJsDefault.default).render(bookmark, false)).join("");
+    }
+}
+exports.default = new BookmarksView();
+
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./previewView.js":"1FDQ6"}],"1FDQ6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _iconsSvg = require("url:../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+class PreviewView extends (0, _viewJsDefault.default) {
+    _parentElement = "";
+    _errorMessage = "No recipe found for your query! Please try again later;";
+    _generateMarkup() {
+        const id = window.location.hash.slice(1);
+        return `
+  <li class="preview">
+      <a class="preview__link ${this._data.id === id ? "preview__link--active" : ""}" href="#${this._data.id}">
+        <figure class="preview__fig">
+          <img src="${this._data.image}" alt="${this._data.title}" />
+        </figure>
+        <div class="preview__data">
+          <h4 class="preview__title">${this._data.title}</h4>
+          <p class="preview__publisher">${this._data.publisher}</p>
+        </div>
+      </a>
+  </li>
+`;
+    }
+}
+exports.default = new PreviewView();
+
+},{"./View.js":"5cUXS","url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequire3a11")
 
 //# sourceMappingURL=index.e37f48ea.js.map
